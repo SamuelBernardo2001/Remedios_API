@@ -31,3 +31,20 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Spring Boot secrets
+application.properties
+application.yml
+application-*.properties
+application-*.yml
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Temp
+tmp/
