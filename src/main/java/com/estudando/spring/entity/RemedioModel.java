@@ -4,10 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Min;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -15,6 +12,7 @@ import java.time.LocalDate;
 @Setter // Gera os métodos setters para os campos da classe
 @NoArgsConstructor // Gera um construtor sem argumentos
 @AllArgsConstructor // Gera um construtor com argumentos para todos os campos da classe
+@EqualsAndHashCode(of = "id") // Gera os métodos equals() e hashCode() baseados no campo 'id'
 @Entity // Indica que esta classe é uma entidade JPA, ou seja, será mapeada para uma tabela no banco de dados
 @Table(name = "Remedio") // Especifica o nome da tabela no banco de dados que esta entidade irá mapear
 public class RemedioModel {
