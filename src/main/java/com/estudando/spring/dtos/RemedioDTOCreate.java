@@ -2,6 +2,7 @@ package com.estudando.spring.dtos;
 
 import com.estudando.spring.entity.Laboratorio;
 import com.estudando.spring.entity.Via;
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +21,7 @@ public record RemedioDTOCreate(
         String lote,
 
         @NotNull (message = "A validade do remédio é obrigatória")
+        @Future
         LocalDate validade,
 
         @Min(value = 1, message = "A quantidade do remédio deve ser pelo menos 1")
