@@ -2,6 +2,7 @@ package com.estudando.spring.repository;
 
 import com.estudando.spring.entity.Laboratorio;
 import com.estudando.spring.entity.RemedioModel;
+import com.estudando.spring.entity.Via;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
@@ -17,4 +18,5 @@ public interface RemedioRepository extends JpaRepository<RemedioModel, Long> {
 
     List<RemedioModel> findByQuantidade(Integer quantidade);
 
+    boolean existsByNomeAndViaAndLaboratorio(String nome, Via via, Laboratorio laboratorio);
 }

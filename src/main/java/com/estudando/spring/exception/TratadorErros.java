@@ -22,4 +22,9 @@ public class TratadorErros {
 
         return ResponseEntity.badRequest().body(erros);
     }
+
+    @ExceptionHandler(RemedioDuplicadoException.class)
+    public ResponseEntity<String> tratarRemedioDuplicado(RemedioDuplicadoException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 }
