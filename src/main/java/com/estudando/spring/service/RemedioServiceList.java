@@ -30,4 +30,18 @@ public class RemedioServiceList {
                 ))
                 .toList();
     }
+
+    public List<RemedioResponseDTO> buscarRemediosPorNome(String nome) {
+        return repository.findByNomeContainingIgnoreCase(nome).stream()
+                .map(remedio -> new RemedioResponseDTO(
+                        remedio.getId(),
+                        remedio.getNome(),
+                        remedio.getVia(),
+                        remedio.getLote(),
+                        remedio.getValidade(),
+                        remedio.getQuantidade(),
+                        remedio.getLaboratorio()
+                ))
+                .toList();
+    }
 }
