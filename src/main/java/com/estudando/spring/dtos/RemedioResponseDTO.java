@@ -7,8 +7,8 @@ import java.time.LocalDate;
 
 public record RemedioResponseDTO(
         Long id,
-        Via via,
         String nome,
+        Via via,
         String lote,
         LocalDate validade,
         Integer quantidade,
