@@ -10,13 +10,13 @@ import java.util.List;
 
 public interface RemedioRepository extends JpaRepository<RemedioModel, Long> {
 
-    List<RemedioModel> findByNome(String nome);
-
-    List<RemedioModel> findByValidade(LocalDate data);
+    List<RemedioModel> findByNomeContainingIgnoreCase(String nome);
 
     List<RemedioModel> findByLaboratorio(Laboratorio laboratorio);
 
-    List<RemedioModel> findByQuantidade(Integer quantidade);
+    List<RemedioModel> findByVia(Via via);
+
+    List<RemedioModel> findByValidadeBefore(LocalDate data);
 
     boolean existsByNomeAndViaAndLaboratorio(String nome, Via via, Laboratorio laboratorio);
 }
