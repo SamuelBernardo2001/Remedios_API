@@ -45,9 +45,12 @@ public class RemedioController {
         return ResponseEntity.ok(lista);
     }
 
+    @GetMapping("/buscar-por-laboratorio")
     public ResponseEntity<List<RemedioResponseDTO>> buscarRemediosPorLaboratorio(@RequestParam Laboratorio laboratorio) {
         List<RemedioResponseDTO> lista = serviceList.buscarRemediosPorLaboratorio(laboratorio);
         return ResponseEntity.ok(lista);
     }
+
+
 
 }
