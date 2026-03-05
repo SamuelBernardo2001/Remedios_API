@@ -4,6 +4,7 @@ import com.estudando.spring.dtos.RemedioDTOCreate;
 import com.estudando.spring.dtos.RemedioResponseDTO;
 import com.estudando.spring.entity.Laboratorio;
 import com.estudando.spring.entity.RemedioModel;
+import com.estudando.spring.entity.Via;
 import com.estudando.spring.service.RemedioServiceCreate;
 import com.estudando.spring.service.RemedioServiceList;
 import jakarta.transaction.Transactional;
@@ -51,6 +52,10 @@ public class RemedioController {
         return ResponseEntity.ok(lista);
     }
 
-
+    @GetMapping("/buscar-por-via")
+    public ResponseEntity<List<RemedioResponseDTO>> buscarRemediosPorVia(@RequestParam Via via) {
+        List<RemedioResponseDTO> lista = serviceList.buscarRemediosPorVia(via);
+        return ResponseEntity.ok(lista);
+    }
 
 }
