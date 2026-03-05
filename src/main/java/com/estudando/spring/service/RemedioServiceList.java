@@ -1,6 +1,7 @@
 package com.estudando.spring.service;
 
 import com.estudando.spring.dtos.RemedioResponseDTO;
+import com.estudando.spring.entity.Laboratorio;
 import com.estudando.spring.entity.Via;
 import com.estudando.spring.repository.RemedioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,20 @@ public class RemedioServiceList {
 
     public  List<RemedioResponseDTO> buscarRemediosPorVia(Via via) {
         return repository.findByVia(via).stream()
+                .map(remedio -> new RemedioResponseDTO(
+                        remedio.getId(),
+                        remedio.getNome(),
+                        remedio.getVia(),
+                        remedio.getLote(),
+                        remedio.getValidade(),
+                        remedio.getQuantidade(),
+                        remedio.getLaboratorio()
+                ))
+                .toList();
+    }
+
+    public List<RemedioResponseDTO> buscarRemediosPorLaboratorio(Laboratorio laboratorio) {
+        return repository.findByLaboratorio(laboratorio).stream()
                 .map(remedio -> new RemedioResponseDTO(
                         remedio.getId(),
                         remedio.getNome(),
