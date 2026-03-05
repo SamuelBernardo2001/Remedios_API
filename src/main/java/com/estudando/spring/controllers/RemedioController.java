@@ -2,6 +2,7 @@ package com.estudando.spring.controllers;
 
 import com.estudando.spring.dtos.RemedioDTOCreate;
 import com.estudando.spring.dtos.RemedioResponseDTO;
+import com.estudando.spring.entity.Laboratorio;
 import com.estudando.spring.entity.RemedioModel;
 import com.estudando.spring.service.RemedioServiceCreate;
 import com.estudando.spring.service.RemedioServiceList;
@@ -41,6 +42,11 @@ public class RemedioController {
     @GetMapping("/buscar-por-nome")
     public ResponseEntity<List<RemedioResponseDTO>> buscarRemediosPorNome(@RequestParam String nome) {
         List<RemedioResponseDTO> lista = serviceList.buscarRemediosPorNome(nome);
+        return ResponseEntity.ok(lista);
+    }
+
+    public ResponseEntity<List<RemedioResponseDTO>> buscarRemediosPorLaboratorio(@RequestParam Laboratorio laboratorio) {
+        List<RemedioResponseDTO> lista = serviceList.buscarRemediosPorLaboratorio(laboratorio);
         return ResponseEntity.ok(lista);
     }
 
